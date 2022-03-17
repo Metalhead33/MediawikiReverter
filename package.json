@@ -1,0 +1,19 @@
+{
+  "name": "wodreverter",
+  "version": "1.0.0",
+  "description": "Reverts edits made by someone on specific pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "--help"
+  },
+  "keywords": [
+    "mediawiki",
+    "bot"
+  ],
+  "author": "Metalhead33",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mwn": "^1.11.4",
+    "typescript": "^4.6.2"
+  }
+}

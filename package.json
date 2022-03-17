@@ -1,8 +1,9 @@
 {
   "name": "wodreverter",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "Reverts edits made by someone on specific pages.",
-  "main": "index.js",
+  "main": "built/index.js",
   "scripts": {
     "test": "--help"
   },
@@ -15,5 +16,9 @@
   "dependencies": {
     "mwn": "^1.11.4",
     "typescript": "^4.6.2"
+  },
+  "scripts": {
+  "build": "tsc --build",
+  "clean": "tsc --build --clean"
   }
 }

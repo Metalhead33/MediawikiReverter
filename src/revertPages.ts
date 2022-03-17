@@ -11,9 +11,15 @@ import { ApiResponse, mwn } from 'mwn';
 }*/
 
 async function revertPages(bot : mwn, user : string, pages : string[]) : Promise<void> {
+    const query = await bot.query({meta:"tokens"});
+
+    /*for(var i = 0; i < pages.length; ++i) {
+        const response = bot.rollback(pages[i],user, { markbot: true } );
+        console.log("Response:\n" + JSON.stringify(response));
+    }*/
     pages.forEach(async function(element) {
             // await revertPage(bot,user,element);
-            const response = bot.rollback(element,user);
+            const response = await bot.rollback(element,user);
             console.log("Response:\n" + JSON.stringify(response));
     });
 }

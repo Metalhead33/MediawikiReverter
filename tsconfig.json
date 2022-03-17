@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "target": "es2015",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "./built",
-    "rootDir": "./src",
-    "target": "es2017"
+    "rootDir": "./src"
   },
   "exclude": [
     "dist",

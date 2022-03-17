@@ -16,4 +16,4 @@ async function main() : Promise<void> {
     const pages = readFileSync('./pagenames.txt').toString().split('\n');
     revert.revertPages(bot,credentials.targetUser,pages);
 }
-await main();
+main().then();

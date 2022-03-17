@@ -10,18 +10,25 @@ import { ApiResponse, mwn } from 'mwn';
     console.log("Response:\n" + JSON.stringify(response));
 }*/
 
-async function revertPages(bot : mwn, user : string, pages : string[]) : Promise<void> {
-    const query = await bot.query({meta:"tokens"});
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    /*for(var i = 0; i < pages.length; ++i) {
-        const response = bot.rollback(pages[i],user, { markbot: true } );
-        console.log("Response:\n" + JSON.stringify(response));
-    }*/
-    pages.forEach(async function(element) {
-            // await revertPage(bot,user,element);
-            const response = await bot.rollback(element,user);
+async function revertPages(bot : mwn, user : string, pages : string[]) : Promise<void> {
+    try {
+        for(var i = 0; i < pages.length; ++i) {
+            await delay(10000);
+            console.log('Reverting edits made by ' + user + ' at page ' + pages[i] + '!');
+            const response = await bot.rollback(pages[i],user, { markbot: true } );
             console.log("Response:\n" + JSON.stringify(response));
-    });
+            /*pages.forEach(async function(element) {
+                    // await revertPage(bot,user,element);
+                    console.log('Reverting edits made by ' + user + ' at page ' + element + '!');
+                    const response = await bot.rollback(element,user);
+                    console.log("Response:\n" + JSON.stringify(response));
+            });*/
+        }
+      } catch (error) {
+        console.log(error);
+      }
 }
 
 export { revertPages }

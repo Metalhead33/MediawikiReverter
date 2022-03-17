@@ -15,7 +15,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 async function revertPages(bot : mwn, user : string, pages : string[]) : Promise<void> {
     try {
         for(var i = 0; i < pages.length; ++i) {
-            await delay(10000);
+            await delay(4000);
             console.log('Reverting edits made by ' + user + ' at page ' + pages[i] + '!');
             const response = await bot.rollback(pages[i],user, { markbot: true } );
             console.log("Response:\n" + JSON.stringify(response));
